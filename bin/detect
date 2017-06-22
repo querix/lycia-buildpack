@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+if [[ -f "$1/Makefile" ]] ; then
+  echo "Lycia buildpack is compatible with this application."
+  exit 0
+else
+  echo "Lycia buildpack is not compatible with this application."
+  exit 1
+fi

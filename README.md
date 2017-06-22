@@ -1,1 +1,1 @@
-# lycia-buildpack
+# CloudFoundry Querix Lycia3 buildpack
