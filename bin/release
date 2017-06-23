@@ -3,5 +3,5 @@
 
 cat << EOF
 default_process_types:
-  web: make run
+  web: . /opt/Querix/Lycia/environ && /etc/init.d/qx-webserver start
 EOF

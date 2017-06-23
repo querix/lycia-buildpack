@@ -11,7 +11,9 @@ BUILDPACKS_DIR=$(dirname $(dirname $0))
 cd $BUILD_DIR
 
 echo "-----> Adding SOX library support"
-tar xzf $BUILDPACKS_DIR/vendor/layer.tar -C /
+if [ -d "/opt/Querix/Lycia" ]; then
+  tar xzf $BUILDPACKS_DIR/vendor/layer.tar -C /
+fi
 
 echo "-----> Building runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
@@ -19,5 +21,8 @@ mkdir -p $BUILD_DIR/.profile.d
 #echo "export LD_LIBRARY_PATH=\"\$HOME/vendor/libs/\";" >> $BUILD_DIR/.profile.d/profile.sh
 echo ". /opt/Querix/Lycia/environ" >> $BUILD_DIR/.profile.d/profile.sh
 
+export QX_PROGS_PATH=/opt/Querix/Lycia/progs
+
 echo "-----> Compiling with make ..."
 make
+
